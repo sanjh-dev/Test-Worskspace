@@ -1,0 +1,29 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h3>Products Data Page</h3>
+<table border="1">
+<tr>
+<th>ID</th>
+<th>CODE</th>
+<th>COST</th>
+<th>GST</th>
+<th>DISCOUNT</th>
+<th colspan="3">OPERATIONS</th>
+</tr>
+<tr th:each="ob:${list}">
+<td th:text="${ob.prodId}"></td>
+<td th:text="${ob.prodCode}"></td>
+<td th:text="${ob.prodCost}"></td>
+<td th:text="${ob.gst}"></td>
+<td th:text="${ob.discount}"></td>
+<td>
+<a th:href="@{/product/delete/{id}(id=${ob.prodId})}">DELETE</a>
+<a th:href="@{/product/view/{id}(id=${ob.prodId})}">VIEW</a>
+<a th:href="@{/product/edit/{id}(id=${ob.prodId})}">EDIT</a>
+</td>
+
+</tr>
+</table>
+</body>
+</html>
